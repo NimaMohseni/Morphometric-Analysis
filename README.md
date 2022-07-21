@@ -7,9 +7,9 @@
 
 ## Introduction
 
-This repository contains a python based tool which can process the results of morphometric analysis of landmark data; it can be used for futher investigation the structure of the data, look for outliers, classify (new) samples, plot the classifiaction boundaries and produce plots.
+This repository contains a python based tool which can process the results of morphometric analysis of landmark data; it can be used for futher investigation structure of data structure, look for outliers, classify (new) samples, plot the classifiaction boundaries and produce plots.
 
-The tool uses the output file of morphologika in '.txt' format as its input.
+The tool uses the output file of ***morphologika*** program in '.txt' format as its input.
 
 ## Usage
 
