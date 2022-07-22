@@ -98,8 +98,8 @@ The `plot_tsne` function is a multi-purpose function to create t-SNE plots.
 ```python
 plot_tsne(n_r=4, ax= None,
           localo = False, decision_boundary = False,
-          cv = False, index_r=0,
-          le=0, perplexity=10, n_neighbors=5)
+          cv = False, dlegend = True, index_r=0,
+          perplexity=10, n_neighbors=5)
 ```
 
 This function can be used to create a simple t-SNE plot and more. By setting `localo` to True, a local outlier factor analysis will be performed and the score of the samples (according to this measures) will be presented as circles around them with radius proportional to the score. `n_neighbors=5` is a hyper-parameters of the t-SNE algorithm.
