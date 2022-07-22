@@ -34,7 +34,7 @@ from Morphometrics import procpca as procpca
 prpca = procpca(df)
 ```
 
-After this, the results of a morphologika analysis can be read using the '*.read*' function:
+After this, the results of a morphologika analysis can be read using the `.read` function:
 
 ```python
 dataf, datag, ind, name = prpca.read('without papio cynocephalus_8_remains.txt')
@@ -43,11 +43,14 @@ This function takes a '*.txt*' as its input and returns two data sets containing
 
 It should be noted that this function would also automatically run the `post_process()` function at its end.
 
+The `post_process()` can reduce the data set and remove certain groups. The reason for this could be that one might want to perform a classification task and for any possible reason they might not want to include a group as a refrence.
+
 ## Examples
 
 ```python
 prpca = procpca(df)
 dataf, datag, ind, name, data = prpca.read('without papio cynocephalus_8_remains.txt')
 ```
+
 
 ## Dependencies
