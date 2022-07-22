@@ -84,7 +84,7 @@ PCAplotm(y, x, ind1, ind2,
 
 ```python
 PCAplot(y, x, ind1, ind2,
-        sav1, sav2, sav3 = ,
+        sav1, sav2, sav3 ,
         annote, ax,
         dlegend, index_r)
 ```
