@@ -24,9 +24,10 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
 * `Sex.`
 * `Complete:` The complete name of each sample (the names used in the initial landmark data imported in morphologika).
 
-  
-  
+It is recommended that this data set should be produced for the intial landmark data before removing any samples because it would act as a refrence, making further comparisons feasible.
 
+  
+  
 ## Examples
 
 ```python
