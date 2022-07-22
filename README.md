@@ -41,7 +41,7 @@ This class has two inputs:
 ```python
 def(dataframe, classifier = None)
 ```
-The `dataframe` is mandatory but the `classifier` can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here.
+The `dataframe` is mandatory but the `classifier` can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here, if not, a default KNN (n neighbours = 2) will be used.
 
 After this, the results of a morphologika analysis can be read using the `.read` function:
 
@@ -89,18 +89,31 @@ PCAplot(y, x, ind1, ind2,
         dlegend, index_r)
 ```
 
-The function arguements are similar to that of PCAplot.
+The function arguements are similar to that of `PCAplot`.
 
 #### t-SNE Plots
 
+The `plot_tsne` function is a multi-purpose function to create t-SNE plots.
 
+```python
+plot_tsne(n_r=4, ax= None,
+          localo = False, decision_boundary = False,
+          cv = False, index_r=0,
+          le=0, perplexity=10, n_neighbors=5)
+```
+
+This function can be used to create a simple t-SNE plot and more. By setting `localo` to True, a local outlier factor analysis will be performed and the score of the samples (according to this measures) will be presented as circles around them with radius proportional to the score. `n_neighbors=5` is a hyper-parameters of the t-SNE algorithm.
+
+Setting the `decision_boundary` to True will depict the decision boundary of the classifier passed to the class. If `cv` is left as default, a single fit will be performed on the data-set, changing it to True will perform a 5-fold cross-validation (shuffled). `perplexity` is a hyper-parameters of the local outlier factor algorithm.
+
+#### Dendrogram plot
+
+`plot_dendrogram()` will create a denrogram using the results of the GPA analysis.
+ 
 
 ## Examples
 
-```python
-prpca = procpca(df)
-dataf, datag, ind, name, data = prpca.read('without papio cynocephalus_8_remains.txt')
-```
+A jupyter notebook in Examples folder shows examples of implementing the module.
 
 
 ## Dependencies
