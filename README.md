@@ -41,7 +41,7 @@ This class has two inputs:
 ```python
 def(dataframe, classifier = None)
 ```
-The `*dataframe*` is mandatory but the `*classifier*` can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here.
+The *`dataframe`* is mandatory but the *`classifier`* can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here.
 
 After this, the results of a morphologika analysis can be read using the `.read` function:
 
@@ -57,7 +57,7 @@ It should be noted that this function would also automatically run the `post_pro
 
 ### Processing the data
 
-The `*deletg*` arguement of `post_process(deletg = None)` can reduce the data set and remove certain groups. The reason for this could be that one might want to perform a classification task and for any possible reason they might not want to include a group as a refrence. For the papi data set we used for examples, it would also remove *lophocebus aterrimus* since it only has two samples. The reduced data set is only used for training classifiers and does not replace anything.
+The *`deletg`* arguement of `post_process(deletg = None)` can reduce the data set and remove certain groups. The reason for this could be that one might want to perform a classification task and for any possible reason they might not want to include a group as a refrence. For the papi data set we used for examples, it would also remove *lophocebus aterrimus* since it only has two samples. The reduced data set is only used for training classifiers and does not replace anything.
 
 ```python
 prpca.post_process(deletg='papio cynocephalus')
