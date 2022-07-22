@@ -21,7 +21,7 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
  
 * Group: The name of the group to which each sample belongs.
 * Encoded: The encoded labels of these groups.
-* Sex.`#ffffff fffefeggreg`
+* Sex.`# hhthhtr`
 * Complete: The complete name of each sample (the names used in the initial landmark data imported in morphologika).
 
   
