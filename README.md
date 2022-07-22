@@ -29,14 +29,23 @@ This refrence data-set can be created just once and saved to be read and used la
 
 The first step is to create an instance of the class after importing it amd then passing the refrence data-set to it:
 
-### Reading the data
+### Initiating
 
 ```python
 from Morphometrics import procpca as procpca
 prpca = procpca(df)
 ```
 
+This class has two inputs:
+
+```python
+def(dataframe, classifier = None)
+```
+The `dataframe` is mandatory but the `classifier` can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here.
+
 After this, the results of a morphologika analysis can be read using the `.read` function:
+
+### Reading the data
 
 ```python
 dataf, datag, ind, name = prpca.read('without papio cynocephalus_8_remains.txt')
@@ -53,7 +62,10 @@ The *deletg* arguement of `post_process(deletg = None)` can reduce the data set 
 ```python
 prpca.post_process(deletg='papio cynocephalus')
 ```
-The 
+
+### Creating Plots
+
+Several plots can be created using the available functions; including the PCA plots, the t-Distributed Stochastic Neighbor Embedding (t-SNE) plots and a dendrogram plot. The descision boundary of any arbitrary classifier used for classifying the samples can also be represented in the t-SNE plots.
 
 
 
