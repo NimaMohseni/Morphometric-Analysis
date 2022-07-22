@@ -257,7 +257,7 @@ class procpca():
         self.post_process()
 
         # Returning the results of the morphologika analysis in a convenient format
-        return(data, datag, ind, name, rows)
+        return(data, datag, ind, name)
     
     # A function for preparing PCA plots
     # ind s are the # of principal components which should be ploted
@@ -356,7 +356,7 @@ class procpca():
         self.PCAplotm(self.y,self.x,2,3,sav1, sav2, sav3, annote,ax, False, index_r)
 
     # Create linkage matrix for the dendrogram to be plotted
-    def plot_dendrogram(self, model, **kwargs):
+    def dendrogram_GPA(self, model, **kwargs):
         
         # The counts of samples under each node
         counts = np.zeros(model.children_.shape[0])
@@ -379,7 +379,7 @@ class procpca():
         dendrogram(linkage_matrix, **kwargs, color_threshold=0.35)
 
     # The dendrogram function
-    def dendrogram_GPA(self):
+    def plot_dendrogram(self):
 
         # setting distance_threshold=0 ensures we compute the full tree.
         # Using agglomerative clustering
@@ -389,7 +389,7 @@ class procpca():
         fig = plt.figure(figsize=(10, 6))
         plt.title("Hierarchical Clustering")
         # plot the top three levels of the dendrogram
-        self.plot_dendrogram(model, truncate_mode="level", p=10, labels= self.labels)
+        self.dendrogram_GPA(model, truncate_mode="level", p=10, labels= self.labels)
         plt.xlabel("Number of points in node (or index of point if no parenthesis).")
         #plt.savefig('Dendro.svg', transparent=True, bbox_inches='tight')
         #plt.show()
@@ -399,15 +399,16 @@ class procpca():
 
         X = np.array(self.datag.iloc[:, 4:])
         y = np.array(self.datag.iloc[:, 3])
-        y0 = np.array(self.datag.iloc[:, 1])
+        self.y0 = np.array(self.datag.iloc[:, 1])
 
         mask = np.ones(len(y), dtype = bool)
-        delet = np.where(y0 == 'lophocebus aterrimus')
+        delet = np.where(self.y0 == 'lophocebus aterrimus')
         mask[delet] = False
-        delet = np.where(y0 == deletg)
+        delet = np.where(self.y0 == deletg)
         mask[delet] = False
         self.Xr = X[mask]
         self.ys = y[mask]
+        self.deletg = deletg
 
         self.encoder2 = LabelEncoder()
         self.encoder2.fit(self.ys)
@@ -415,7 +416,7 @@ class procpca():
         #y02 = y0[mask]
 
     # A multi-purpose function for performing t-SNE and preparing plots
-    def plot_tsne(self, n_r=4, ax= None, localo = False, decision_boundary = False, cv = False, removed=0, index_r=0, mask=0, le=0, perplexity=10, n_neighbors=5):
+    def plot_tsne(self, n_r=4, ax= None, localo = False, decision_boundary = False, cv = False, dlegend = True, index_r=0, perplexity=10, n_neighbors=5):
         
         if ax == None:
             fig, ax = plt.subplots(figsize=(7,6))
@@ -455,14 +456,22 @@ class procpca():
             # If cross-validation is needed
             if cv == True:
                 # A 5-fold cross validation
-                cv = StratifiedKFold(n_splits=5, shuffle=True, random_state=1)
+                cv = StratifiedKFold(n_splits=5, shuffle=True) #, random_state=1
                 ycv = np.copy(y)
-                for train, test in cv.split(self.Xr, self.ys):
-                    self.classifier.fit(self.Xr[train], self.ys[train])
-                    y_predicted = self.classifier.predict(self.Xr[test])
+                for train, test in cv.split(Xs, y):
+
+                    mask = np.ones(len(y[train]), dtype = bool)
+                    delet = np.where(self.y0[train] == 'lophocebus aterrimus')
+                    mask[delet] = False
+                    delet = np.where(self.y0[train] == self.deletg)
+                    mask[delet] = False
+
+                    self.classifier.fit(Xs[train][mask], self.y[train][mask])
+                    y_predicted = self.classifier.predict(Xs[test])
                     ycv[test] = y_predicted
-                    y_predicted = ycv
-                    y_predicted = self.encoder2.transform(y_predicted)
+                    
+                y_predicted = ycv
+                y_predicted = self.encoder2.transform(y_predicted)
 
             # Colours for voroni background
             colors3 = []
@@ -521,8 +530,9 @@ class procpca():
 
 
         if index_r == 1:
-            legends.append(mpatches.Patch(color='none', label=labelr)) 
-        if le == 1:    
+            legends.append(mpatches.Patch(color='none',
+                            label='removed samples: '+self.removed[:6]+"\n"+self.removed[6:]))
+        if dlegend == True:    
             # Produce a legend with the unique colors from the scatter
             legend1 = ax.legend(handles = legends,
                 loc="best", handlelength=1, framealpha=0.35)
