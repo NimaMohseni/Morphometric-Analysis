@@ -77,8 +77,21 @@ PCAplotm(y, x, ind1, ind2,
         annote = False, ax = None,
         dlegend = True, index_r = 0)
 ```
-`y` is the label of the samples (encoded), `x` is the PC data, the plots can be saved by setting `sav1=1`, `sav2` can take a string for naming the saved file, `sav3` can change the default save format '*.svg*' (vector quality). Setting `annote` to true will write the index of each sample (accordin to the initial data frame) beside it.
 
+`y` is the label of the samples (encoded), `x` is the PC data, the plots can be saved by setting `sav1=1`, `sav2` can take a string for naming the saved file, `sav3` can change the default save format '*.svg*' (vector quality). Setting `annote` to True will write the index of each sample (accordin to the initial data frame) beside it. in case the plot is meant to be presented in an axes object of a *matplotlib* figure, it should be passed to `ax`. Setting `dlegend` to True will add a legend to the plot and setting `index_r=1` will add a string to the legend, listing all the abscent samples from the initial refrence data-set (in case of removal).
+
+`PCAplotm` is a function to create the first 3 PCA plots together.
+
+```python
+PCAplot(y, x, ind1, ind2,
+        sav1, sav2, sav3 = ,
+        annote, ax,
+        dlegend, index_r)
+```
+
+The function arguements are similar to that of PCAplot.
+
+#### t-SNE Plots
 
 
 
