@@ -24,10 +24,10 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
 * `Sex.`
 * `Complete:` The complete name of each sample (the names used in the initial landmark data imported in morphologika).
 
-It is recommended that this data set should be produced for the intial landmark data before removing any samples because it would act as a refrence, making further comparisons feasible.
-This refrence data set can be created just once and saved to be read and used later.
+It is recommended that this data-set should be produced for the intial landmark data before removing any samples because it would act as a refrence, making further comparisons feasible.
+This refrence data-set can be created just once and saved to be read and used later.
 
-The first step is to create an instance of the class after importing it amd then passing the refrence data set to it:
+The first step is to create an instance of the class after importing it amd then passing the refrence data-set to it:
 
 ```python
 from Morphometrics import procpca as procpca
@@ -39,7 +39,7 @@ After this, the results of a morphologika analysis can be read using the `.read`
 ```python
 dataf, datag, ind, name = prpca.read('without papio cynocephalus_8_remains.txt')
 ```
-This function takes a '*.txt*' as its input and returns two data sets containing a summary of the analysed samples (*dataf*), the results of the procrustes analysis in tabular format (*datag*), the index of the samples in the intial refrence data frame (*ind*) and their names (*name*).
+This function takes a '*.txt*' as its input and returns two data-sets containing a summary of the analysed samples (*dataf*), the results of the procrustes analysis in tabular format (*datag*), the index of the samples in the intial refrence data frame (*ind*) and their names (*name*).
 
 It should be noted that this function would also automatically run the `post_process()` function at its end.
 
