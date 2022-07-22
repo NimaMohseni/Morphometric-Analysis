@@ -18,6 +18,7 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
   After processing ladmark data in morphologika comprising of General Procrustes Analysis and Principal Component Analysis the output can be saved in '.txt' format. This module uses that text file as its input.
   
  There's also a need for a data frame with columns containing the information of the samples:
+ 
 -Group: The name of the group to which each sample belongs.
 -Encoded: The encoded labels of these groups.
 -Sex.
