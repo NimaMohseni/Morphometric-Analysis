@@ -310,7 +310,7 @@ class procpca():
             points = x[:,[ind1,ind2]][np.array(y==i).ravel()]
             # There should be more than 3 samples in each group
             if points.shape[0] < 3:
-                print(points.shape)
+                #print(points.shape)
                 continue
             hull = ConvexHull(points)
             x_hull = np.append(points[hull.vertices,0],
@@ -416,7 +416,7 @@ class procpca():
         #y02 = y0[mask]
 
     # A multi-purpose function for performing t-SNE and preparing plots
-    def plot_tsne(self, n_r=4, ax= None, localo = False, decision_boundary = False, cv = False, dlegend = True, index_r=0, perplexity=10, n_neighbors=5):
+    def plot_tsne(self, n_r=4, ax= None, localo = False, decision_boundary = False, cv = False, dlegend = False, index_r=0, perplexity=10, n_neighbors=5):
         
         if ax == None:
             fig, ax = plt.subplots(figsize=(7,6))
@@ -506,7 +506,7 @@ class procpca():
         for i in (np.unique(y)):
             points = X_embedded[:,[0, 1]][np.array(y==i).ravel()]
             if points.shape[0] < 3:
-                print(points.shape)
+                #print(points.shape)
                 continue
 
             hull = ConvexHull(points)
