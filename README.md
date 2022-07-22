@@ -26,6 +26,12 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
 
 It is recommended that this data set should be produced for the intial landmark data before removing any samples because it would act as a refrence, making further comparisons feasible.
 
+The first step is to create an instance of the class after importing it:
+
+```python
+from Morphometrics import procpca as procpca
+prpca = procpca(df)
+```
   
   
 ## Examples
