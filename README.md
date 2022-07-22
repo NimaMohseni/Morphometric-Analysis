@@ -41,7 +41,7 @@ This class has two inputs:
 ```python
 def(dataframe, classifier = None)
 ```
-The *`dataframe`* is mandatory but the *`classifier`* can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here.
+The `dataframe` is mandatory but the `classifier` can be left blank. If any specific classifier is supposed to be used for creating decision boundary plots, it should be passed here.
 
 After this, the results of a morphologika analysis can be read using the `.read` function:
 
@@ -77,7 +77,7 @@ PCAplotm(y, x, ind1, ind2,
         annote = False, ax = None,
         dlegend = True, index_r = 0)
 ```
-**y** is the label of the samples (encoded), **x** is the PC data, the plots can be saved by setting **sav1=1**, **sav2** can take a string for naming the saved file, **sav3** can change the default save format '*.svg*' (vector quality). Setting **annote** to true will write the index of each sample (accordin to the initial data frame) beside it.
+`y` is the label of the samples (encoded), `x` is the PC data, the plots can be saved by setting `sav1=1`, `sav2` can take a string for naming the saved file, `sav3` can change the default save format '*.svg*' (vector quality). Setting `annote` to true will write the index of each sample (accordin to the initial data frame) beside it.
 
 
 
