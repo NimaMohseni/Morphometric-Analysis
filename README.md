@@ -67,6 +67,19 @@ prpca.post_process(deletg='papio cynocephalus')
 
 Several plots can be created using the available functions; including the PCA plots, the t-Distributed Stochastic Neighbor Embedding (t-SNE) plots and a dendrogram plot. The descision boundary of any arbitrary classifier used for classifying the samples can also be represented in the t-SNE plots.
 
+#### PCA Plots
+
+`PCAplotm` cab be used for creating PCA plots:
+
+```python
+PCAplotm(y, x, ind1, ind2,
+        sav1=0, sav2='', sav3 = '.svg',
+        annote = False, ax = None,
+        dlegend = True, index_r = 0)
+```
+
+
+
 
 
 ## Examples
