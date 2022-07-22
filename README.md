@@ -43,7 +43,7 @@ This function takes a '*.txt*' as its input and returns two data sets containing
 
 It should be noted that this function would also automatically run the `post_process()` function at its end.
 
-The `post_process()` can reduce the data set and remove certain groups. The reason for this could be that one might want to perform a classification task and for any possible reason they might not want to include a group as a refrence.
+The *deletg* arguement of `post_process(deletg = None)` can reduce the data set and remove certain groups. The reason for this could be that one might want to perform a classification task and for any possible reason they might not want to include a group as a refrence. For the papi data set we used for examples, it would also remove *lophocebus aterrimus* since it only has two samples. The reduced data set is only used for training classifiers and does not replace anything.
 
 ## Examples
 
