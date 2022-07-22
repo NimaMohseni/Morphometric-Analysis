@@ -41,6 +41,8 @@ dataf, datag, ind, name = prpca.read('without papio cynocephalus_8_remains.txt')
 ```
 This function takes a '*.txt*' as its input and returns two data sets containing a summary of the analysed samples (*dataf*), the results of the procrustes analysis in tabular format (*datag*), the index of the samples in the intial refrence data frame (*ind*) and their names (*name*).
 
+It should be noted that this function would also automatically run the `'post_process()'` function at its end.
+
 ## Examples
 
 ```python
