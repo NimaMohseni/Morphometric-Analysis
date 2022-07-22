@@ -33,8 +33,14 @@ The first step is to create an instance of the class after importing it amd then
 from Morphometrics import procpca as procpca
 prpca = procpca(df)
 ```
-  
-  
+
+After this, the results of a morphologika analysis can be read using the '*.read*' function:
+
+```python
+dataf, datag, ind, name = prpca.read('without papio cynocephalus_8_remains.txt')
+```
+This function returns two data sets containing a summary of the analysed samples, the results of the procrustes analysis in tabular format, the index of the samples in the intial refrence data frame and their names.
+
 ## Examples
 
 ```python
