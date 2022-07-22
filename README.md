@@ -29,4 +29,9 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
 
 ## Examples
 
+```python
+prpca = procpca(df)
+dataf, datag, ind, name, data = prpca.read('without papio cynocephalus_8_remains.txt')
+```
+
 ## Dependencies
