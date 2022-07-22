@@ -15,7 +15,7 @@ The tool uses the output file of ***morphologika*** program in '*.txt*' format a
 
 ### Input Data
 
-  After processing ladmark data in morphologika comprising of General Procrustes Analysis and Principal Component Analysis the output can be saved in '.txt' format. This module uses that text file as its input.
+  After processing ladmark data in morphologika comprising of General Procrustes Analysis and Principal Component Analysis the output can be saved in '*.txt*' format. This module uses that text file as its input.
   
  There's also a need for a data frame with columns containing the information of the samples:
  
@@ -39,7 +39,7 @@ After this, the results of a morphologika analysis can be read using the '*.read
 ```python
 dataf, datag, ind, name = prpca.read('without papio cynocephalus_8_remains.txt')
 ```
-This function returns two data sets containing a summary of the analysed samples, the results of the procrustes analysis in tabular format, the index of the samples in the intial refrence data frame and their names.
+This function takes a '*.txt*' as its input and returns two data sets containing a summary of the analysed samples (*dataf*), the results of the procrustes analysis in tabular format (*datag*), the index of the samples in the intial refrence data frame (*ind*) and their names (*name*).
 
 ## Examples
 
